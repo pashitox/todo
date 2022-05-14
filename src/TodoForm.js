@@ -3,21 +3,23 @@ import React, { Component } from "react";
 class TodoForm extends Component {
     constructor(props) {
    super(props);
-   this.state = {register: '', Date:''};
+   this.state = {register: "", date:""};
     this.handleChange = this.handleChange.bind(this); 
     this.hamdleSubmit = this.hamdleSubmit.bind(this)              
     }
 
     handleChange(event) {
-        console.log(event)
-        this.setState({register:event.target.value, Date:event.target.value});
+        
+      console.log("new value", event.target.name);
+
+        this.setState({ register: event.target.value });
       }
 
       hamdleSubmit(e){
       console.log(e);
       e.preventDefault()
       
-      this.setState({register:"", Date:""})
+      this.setState({register:"", date:""})
       this.props.AddNew(this.state);
       }
    
@@ -29,16 +31,22 @@ class TodoForm extends Component {
         <form 
         onSubmit={this.hamdleSubmit}>
         <label >Enter Register</label>
+        <div>
         <input
+        id="register"
+        type="text" 
+        name="register"  
+         value={this.state.register} 
+         onChange={this.handleChange} /> 
+        </div>
+        <div>
+        <input
+         id="date"
          type="text" 
-         value={this.state.value} 
+         name="date"
+          value={this.state.date} 
          onChange={this.handleChange} /> 
-        
-        <input
-         type="Date" 
-         value={this.state.Date} 
-         onChange={this.handleChange} /> 
-
+         </div>
          <button>Enviar</button>
         </form>
         </div>
