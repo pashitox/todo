@@ -7,7 +7,7 @@ class TodoList extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        todos: [{register: "hola, todos", Date:12/12/2020},{register:"chao a todos",Date:13/13/2023} ]
+        todos: [{register: "hola, todos", date:"12.12.2020" },{register:"chao a todos",date:"13/13/2023"} ]
       };  
       
       this.crear = this.crear.bind(this)
@@ -15,16 +15,16 @@ class TodoList extends Component {
 
     crear(rgt){
       this.setState({        
-      todos:[...this.state.todos, rgt]
+      todos:[rgt,...this.state.todos]
      });
     }
       
     render() {   
       
-      const todos = this.state.todos.map(todo => { return <TodoAdd register= {todo.register} Date={todo.Date}/>} )
+      const todos = this.state.todos.map(todo => { return <TodoAdd register= {todo.register} Date={todo.date}/>} )
 
       return (
-        <div className='TodoList'>
+        <div>
           <h5>
           <TodoForm AddNew = {this.crear}/>
           Is de list !

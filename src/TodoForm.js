@@ -8,23 +8,34 @@ class TodoForm extends Component {
     this.hamdleSubmit = this.hamdleSubmit.bind(this)              
     }
 
-    handleChange(event) {
+    handleChange(evt) {
         
-      console.log("new value", event.target.name);
-
-        this.setState({ register: event.target.value });
+      this.setState({[evt.target.name]: evt.target.value });
       }
 
       hamdleSubmit(e){
-      console.log(e);
-      e.preventDefault()
+                           
+        var date = this.state.date ;
+        //const d = new Date(date);  
+      
+     // const currentDayOfMonth = d.getDate();
+     // const currentMonth = d.getMonth(); // Be careful! January is 0, not 1
+     // const currentYear = d.getFullYear();
+     // const dateString = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
+
+
+      console.log("juan",date);    
       
       this.setState({register:"", date:""})
       this.props.AddNew(this.state);
-      }
-   
 
+      e.preventDefault()
+
+
+      }
       
+     
+     
     render() {        
       return (
         <div>
@@ -42,7 +53,7 @@ class TodoForm extends Component {
         <div>
         <input
          id="date"
-         type="text" 
+         type="date" 
          name="date"
           value={this.state.date} 
          onChange={this.handleChange} /> 
