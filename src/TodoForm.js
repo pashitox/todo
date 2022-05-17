@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 class TodoForm extends Component {
     constructor(props) {
@@ -15,19 +16,18 @@ class TodoForm extends Component {
 
       hamdleSubmit(e){
                            
-        var date = this.state.date ;
-        //const d = new Date(date);  
-      
-     // const currentDayOfMonth = d.getDate();
-     // const currentMonth = d.getMonth(); // Be careful! January is 0, not 1
-     // const currentYear = d.getFullYear();
-     // const dateString = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
-
-
-      console.log("juan",date);    
+     // var dm = this.state.date ;
+     // const mod = new Date(dm);  
+   // 
+     //const currentDayOfMonth = mod.getDate();
+     //const currentMonth = mod.getMonth(); // Be careful! January is 0, not 1
+     //const currentYear = mod.getFullYear();
+     //const date1 = currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
+     //let text = date1.toString();
+     //console.log("juan",e);    
       
       this.setState({register:"", date:""})
-      this.props.AddNew(this.state);
+      this.props.AddNew({...this.state, id:uuidv4()});
 
       e.preventDefault()
 
