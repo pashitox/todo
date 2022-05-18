@@ -17,8 +17,7 @@ class TodoForm extends Component {
       hamdleSubmit(e){
                            
      // var dm = this.state.date ;
-     // const mod = new Date(dm);  
-   // 
+     // const mod = new Date(dm);    // 
      //const currentDayOfMonth = mod.getDate();
      //const currentMonth = mod.getMonth(); // Be careful! January is 0, not 1
      //const currentYear = mod.getFullYear();

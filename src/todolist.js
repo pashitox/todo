@@ -12,6 +12,7 @@ class TodoList extends Component {
       
       this.crear = this.crear.bind(this);
       this.remove =this.remove.bind(this);
+      this.update = this.update.bind(this)
     }
 
     crear(rgt){          
@@ -21,12 +22,25 @@ class TodoList extends Component {
     }
  
  remove(id){
-
   console.log("nene",id);
-
 this.setState({todos:this.state.todos.filter(t => t.id !== id)})
 
  }   
+
+
+ update(id, updatedtodo) {
+  const updatedTodos = this.state.todos.map(todo => {
+    if (todo.id === id) {
+      return { ...todo, task: updatedtodo };
+    }
+    return todo;
+  });
+
+  console.log(updatedTodos);
+  this.setState({ todos: updatedTodos });
+}
+
+
 
       
     render() {   
@@ -38,6 +52,7 @@ this.setState({todos:this.state.todos.filter(t => t.id !== id)})
         register= {todo.register} 
          Date={todo.date}
          removetodo={this.remove}
+         edit={this.update}
          
          />} )
 
