@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 class TodoForm extends Component {
     constructor(props) {
    super(props);
-   this.state = {register: "", date:""};
+   this.state = {task: ""};
     this.handleChange = this.handleChange.bind(this); 
     this.hamdleSubmit = this.hamdleSubmit.bind(this)              
     }
@@ -25,7 +25,7 @@ class TodoForm extends Component {
      //let text = date1.toString();
      //console.log("juan",e);    
       
-      this.setState({register:"", date:""})
+      this.setState({task:""})
       this.props.AddNew({...this.state, id:uuidv4()});
 
       e.preventDefault()
@@ -43,20 +43,13 @@ class TodoForm extends Component {
         <label >Enter Register</label>
         <div>
         <input
-        id="register"
+        id="task"
         type="text" 
-        name="register"  
-         value={this.state.register} 
+        name="task"  
+         value={this.state.task} 
          onChange={this.handleChange} /> 
         </div>
-        <div>
-        <input
-         id="date"
-         type="date" 
-         name="date"
-          value={this.state.date} 
-         onChange={this.handleChange} /> 
-         </div>
+      
          <button>Enviar</button>
         </form>
         </div>
@@ -64,3 +57,12 @@ class TodoForm extends Component {
     }
 }
   export default TodoForm;
+
+ // <div>
+ // <input
+ //  id="date"
+ //  type="date" 
+ //  name="date"
+ //   value={this.state.date} 
+ //  onChange={this.handleChange} /> 
+ //  </div>
