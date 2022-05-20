@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 class TodoForm extends Component {
     constructor(props) {
    super(props);
-   this.state = {task: ""};
+   this.state = {task: "" };
     this.handleChange = this.handleChange.bind(this); 
     this.hamdleSubmit = this.hamdleSubmit.bind(this)              
     }
@@ -33,8 +33,7 @@ class TodoForm extends Component {
 
       }
       
-     
-     
+         
     render() {        
       return (
         <div>
@@ -50,7 +49,7 @@ class TodoForm extends Component {
          onChange={this.handleChange} /> 
         </div>
       
-         <button>Enviar</button>
+         <button disabled={!this.state.task}>Enviar</button>
         </form>
         </div>
       );
