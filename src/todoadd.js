@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+//import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -17,7 +17,8 @@ class TodoAdd extends Component {
     this.state = { 
       open:false, 
       setOpen:false,       
-      task: this.props.task};
+      task: this.props.task,
+      startDate:this.props.startDate };
 
     this.handleChange = this.handleChange.bind(this);  
     this.HandleRemove = this.HandleRemove.bind(this);
@@ -43,7 +44,7 @@ class TodoAdd extends Component {
   }
   HandleEdit(event){
     event.preventDefault();  
-     this.props.edit(this.props.id,this.state.task);     
+     this.props.edit(this.props.id,this.state.task,this.state.startDate);     
      this.setState({setOpen:false});   
      
   }
@@ -69,7 +70,7 @@ handleClose () {
     <div>  
    
     
-     <li>{this.props.task}</li>
+     <li>{this.props.task}, {this.props.startDate}</li>
      <Button variant="outlined" onClick={this.handleClickOpen}>
          Editar
        </Button>
@@ -87,7 +88,7 @@ handleClose () {
             type='text'
             value={this.state.task}
             name='task'
-         d   onChange={this.handleChange}
+            onChange={this.handleChange}
            />        
            <button>Save</button>
          </form>      
