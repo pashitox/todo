@@ -46,20 +46,13 @@ class TodoForm extends Component {
      var date = new Date();
       
       this.setState({task:"",startDate:date})
-      this.props.AddNew({...this.state, id:uuidv4()});
-
+      this.props.AddNew({...this.state, id:uuidv4()})
       e.preventDefault()
-
-
       }
       
       
          
     render() {  
-      
-      
-
-
       return (
         <div>
         <form 
@@ -73,20 +66,14 @@ class TodoForm extends Component {
          value={this.state.task} 
          onChange={this.handleChange} /> 
         </div>
-
-        <div>     
-       
+        <div>            
         <DatePicker          
        selected={ this.state.startDate }
        onChange={ this.handleChanget }
        id="task"
        name="startDate"
-       dateFormat="dd/MM/yyyy"
-
-    />
-       </div>
-
-      
+       dateFormat="dd/MM/yyyy" />
+       </div>      
          <button disabled={!this.state.task}>Enviar</button>
         </form>
         </div>

@@ -6,6 +6,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 
@@ -20,6 +22,9 @@ class TodoAdd extends Component {
       task: this.props.task,
       startDate:this.props.startDate };
 
+
+
+      this.handleChanget = this.handleChanget.bind(this);
     this.handleChange = this.handleChange.bind(this);  
     this.HandleRemove = this.HandleRemove.bind(this);
     this.HandleEdit = this.HandleEdit.bind(this);
@@ -37,6 +42,14 @@ class TodoAdd extends Component {
       this.setState({[evt.target.name]: evt.target.value
       });
     }
+
+    handleChanget(date) {        
+      // this.setState({[evt.target.name]: evt.target.value });
+      console.log("editchange",date)
+      this.setState({ startDate:date }) 
+     
+       }
+    
    
   
   HandleRemove(){
@@ -44,6 +57,7 @@ class TodoAdd extends Component {
   }
   HandleEdit(event){
     event.preventDefault();  
+    console.log("edit1",this.props.id,this.state.task,this.state.startDate);
      this.props.edit(this.props.id,this.state.task,this.state.startDate);     
      this.setState({setOpen:false});   
      
@@ -70,7 +84,9 @@ handleClose () {
     <div>  
    
     
-     <li>{this.props.task}, {this.props.startDate}</li>
+     <li>the task:{this.props.task} Date: <DatePicker
+      selected={this.props.startDate}
+        dateFormat="dd/MM/yyyy" /></li>
      <Button variant="outlined" onClick={this.handleClickOpen}>
          Editar
        </Button>
@@ -89,17 +105,20 @@ handleClose () {
             value={this.state.task}
             name='task'
             onChange={this.handleChange}
-           />        
-           <button>Save</button>
+           />  
+            <DatePicker          
+             selected={ this.state.startDate }
+            onChange={ this.handleChanget }
+            id="startDate"
+            name="startDate"
+             dateFormat="dd/MM/yyyy"/>
+         <button>Save</button>
          </form>      
          </DialogContent>
          <DialogActions>
-           <Button onClick={this.handleClose}>Cancel</Button>
-           </DialogActions>
-         
-          
-
-       </Dialog>
+         <Button onClick={this.handleClose}>Cancel</Button>
+         </DialogActions>
+        </Dialog>
 
 
     

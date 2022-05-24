@@ -7,7 +7,7 @@ class TodoList extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        todos: [{id:1,task:"prueva",startDate: "12/12/2002", },{id:2,task:"bendicon",startDate: "12/12/2002"}]
+        todos: [{id:1,task:"prueva",startDate:12/12/2002},{id:2,task:"bendicon",startDate:12/12/2002}]
       };  
       
       this.crear = this.crear.bind(this);
@@ -15,9 +15,11 @@ class TodoList extends Component {
       this.update = this.update.bind(this)
     }
 
-    crear(rgt){  
-      
+    crear(rgt){       
       console.log("crear",rgt);
+
+
+      
       this.setState({        
       todos:[...this.state.todos,rgt]
      });
@@ -26,19 +28,13 @@ class TodoList extends Component {
  remove(id){
  // console.log("borrado",id);
 this.setState({todos:this.state.todos.filter(t => t.id !== id)})
-
  }   
-
-
- update(id, updatedtodo) {
-
-console.log("recibe",id,updatedtodo)
-
+ update(id, taskup, dateup) {
+console.log("edit2",id,taskup, dateup)
   const updatedTodos = this.state.todos.map(todo => {
     if (todo.id === id) {
      // alert("act");
-      return { ...todo, task: updatedtodo };
-  
+      return { ...todo, task:taskup, startDate:dateup};  
     }
     return todo;
   });
@@ -53,7 +49,7 @@ console.log("recibe",id,updatedtodo)
         key={todo.id} 
         id={todo.id}
         task={todo.task}
-        Date={todo.startDate}
+        startDate={todo.startDate}
         ///Date={todo.date}
          removetodo={this.remove}
          edit={this.update}         
