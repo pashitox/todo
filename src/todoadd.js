@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import './TodoForm.css';
 
 
 
@@ -27,8 +28,7 @@ class TodoAdd extends Component {
       this.handleChanget = this.handleChanget.bind(this);
     this.handleChange = this.handleChange.bind(this);  
     this.HandleRemove = this.HandleRemove.bind(this);
-    this.HandleEdit = this.HandleEdit.bind(this);
-    
+    this.HandleEdit = this.HandleEdit.bind(this);   
 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose=this.handleClose.bind(this);
@@ -48,8 +48,7 @@ class TodoAdd extends Component {
       console.log("editchange",date)
       this.setState({ startDate:date }) 
      
-       }
-    
+       }  
    
   
   HandleRemove(){
@@ -61,11 +60,7 @@ class TodoAdd extends Component {
      this.props.edit(this.props.id,this.state.task,this.state.startDate);     
      this.setState({setOpen:false});   
      
-  }
-
- 
-
- 
+  } 
   handleClickOpen(){    
     this.setState({setOpen:true});    
   };
@@ -76,21 +71,20 @@ handleClose () {
 
 
   render() {
-    
-
-
-    return (
-    
-    <div>  
-   
-    
+       return (    
+    <div className="container">     
+    <div className="item2">
      <li>the task:{this.props.task} Date: <DatePicker
       selected={this.props.startDate}
         dateFormat="dd/MM/yyyy" /></li>
-     <Button variant="outlined" onClick={this.handleClickOpen}>
+         <Button variant="outlined" onClick={this.handleClickOpen}>
          Editar
        </Button>
-       <Button  variant="outlined" onClick={this.HandleRemove}>Delete</Button>    
+       <Button  variant="outlined" onClick={this.HandleRemove}>Delete</Button>   
+     </div>  
+        
+     <div>
+     
        <Dialog open={this.state.setOpen} onClose={this.handleClose}>
          <DialogTitle>Updating the information</DialogTitle>
          <DialogContent>
@@ -120,10 +114,7 @@ handleClose () {
          </DialogActions>
         </Dialog>
 
-
-    
-
-
+        </div>
     </div>         
 
     

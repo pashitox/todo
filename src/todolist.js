@@ -57,10 +57,7 @@ console.log("edit2",id,taskup, dateup)
 
       return (
         <div>
-          <h5>
-          <TodoForm AddNew = {this.crear}/>
-          Is de list !
-          </h5>
+        <TodoForm AddNew = {this.crear}/>         
          {todos}         
         </div>
       );

@@ -10,13 +10,12 @@ function App() {
 
   return (
     <div >
-      <header >
-        <img src={logo} className="App-logo" alt="logo" />
-          Learn React          
-          <TodoList/>           
-
-      </header>
-    </div>
+      <header>
+       <img src={logo} className="App-logo" alt="logo" />
+        Learn React    
+       </header>      
+      <TodoList/>           
+      </div>
   );
 }
 

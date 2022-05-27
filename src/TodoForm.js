@@ -53,10 +53,10 @@ class TodoForm extends Component {
     render() {  
       return (
         <div className="container">
-          <div className="App">
+          <div className="item1" >
         <form 
         onSubmit={this.hamdleSubmit}>
-        <label className="title">Enter Register y time</label>
+        <label>Enter your Register and Time</label>
         <div>
         <input
         id="task"
@@ -66,14 +66,14 @@ class TodoForm extends Component {
          onChange={this.handleChange} /> 
         </div>
         <div>            
-        <DatePicker          
+        <DatePicker
+                  
        selected={ this.state.startDate }
        onChange={ this.handleChanget }
        id="task"
        name="startDate"
        dateFormat="dd/MM/yyyy" />
        </div> 
-
        <button disabled={!this.state.task}
         className={`${this.state.active?"button_active":"rest_button"}`}
         onClick={this.button}>
