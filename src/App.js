@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import './TodoForm.css';
+
 import TodoList from "./todolist";
 
 
@@ -13,8 +15,10 @@ function App() {
       <header>
        <img src={logo} className="App-logo" alt="logo" />
         Learn React    
-       </header>      
-      <TodoList/>           
+       </header>
+       <body>      
+      <TodoList/> 
+      </body>          
       </div>
   );
 }

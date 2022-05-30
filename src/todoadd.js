@@ -25,11 +25,10 @@ class TodoAdd extends Component {
 
 
 
-      this.handleChanget = this.handleChanget.bind(this);
+    this.handleChanget = this.handleChanget.bind(this);
     this.handleChange = this.handleChange.bind(this);  
     this.HandleRemove = this.HandleRemove.bind(this);
-    this.HandleEdit = this.HandleEdit.bind(this);   
-
+    this.HandleEdit = this.HandleEdit.bind(this); 
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose=this.handleClose.bind(this);
 
@@ -70,18 +69,42 @@ handleClose () {
   };
 
 
+
+
+
+
+
   render() {
        return (    
-    <div className="container">     
-    <div className="item2">
-     <li>the task:{this.props.task} Date: <DatePicker
-      selected={this.props.startDate}
-        dateFormat="dd/MM/yyyy" /></li>
-         <Button variant="outlined" onClick={this.handleClickOpen}>
-         Editar
-       </Button>
-       <Button  variant="outlined" onClick={this.HandleRemove}>Delete</Button>   
-     </div>  
+    <div>     
+   <div class="container_todo">
+	<div class="todo_list">
+		<ul>
+			<li>
+				<label>
+					<input type="checkbox" class="hidden_real_check"/>
+					<div class="todo_element">
+						
+						<span class="customized_ckeck">
+							<span class="checkbox">
+								<span class='internal_one'></span>
+								<span class='internal_two'></span>
+							</span>
+						</span>
+						<span class="element_title">{this.props.task}</span>
+            <DatePicker
+        className="input" 
+        selected={this.props.startDate}
+         dateFormat="dd/MM/yyyy" />
+         <Button variant="text"  onClick={this.handleClickOpen}>Editar  </Button>
+        <Button  variant="text" color="error" onClick={this.HandleRemove}>Delete</Button> 
+             
+				   	</div>
+				  </label>
+			  </li>
+         </ul>
+         </div>
+         </div>
         
      <div>
      
@@ -89,24 +112,27 @@ handleClose () {
          <DialogTitle>Updating the information</DialogTitle>
          <DialogContent>
            <DialogContentText>
-            typing 
            
            </DialogContentText>
-           <form  onSubmit={this.HandleEdit}>
+           <form className="form-input" onSubmit={this.HandleEdit}>
            <input
+            className="input" 
             id="task"
             type='text'
             value={this.state.task}
             name='task'
             onChange={this.handleChange}
            />  
-            <DatePicker          
+            <DatePicker 
+             className="input"          
              selected={ this.state.startDate }
             onChange={ this.handleChanget }
             id="startDate"
             name="startDate"
              dateFormat="dd/MM/yyyy"/>
-         <button>Save</button>
+          <div className="container_b">   
+         <button className={`${this.state.active?"button_active":"rest_button"}`}>Update</button>
+         </div>
          </form>      
          </DialogContent>
          <DialogActions>
@@ -125,3 +151,18 @@ handleClose () {
 export default TodoAdd;
 
 
+
+
+//<div>
+//<li>
+//  <span>Register:
+//  {this.props.task}</span> 
+//  <DatePicker
+//   className="input" 
+// selected={this.props.startDate}
+//   dateFormat="dd/MM/yyyy" /></li>
+//    <Button variant="text"  onClick={this.handleClickOpen}>
+//    Editar
+//  </Button>
+//  <Button  variant="text" color="error" onClick={this.HandleRemove}>Delete</Button>   
+//</div>  

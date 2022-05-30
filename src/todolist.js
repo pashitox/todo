@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoAdd from "./todoadd";
 import TodoForm from "./TodoForm";
+import './TodoForm.css';
 
 
 class TodoList extends Component {
@@ -56,9 +57,14 @@ console.log("edit2",id,taskup, dateup)
          />} )
 
       return (
-        <div>
-        <TodoForm AddNew = {this.crear}/>         
-         {todos}         
+        <div className="container">
+          <div className="item1">
+        <TodoForm AddNew = {this.crear}/>  
+        </div> 
+        <div className="item1 item2">      
+       {todos} 
+         </div>
+         
         </div>
       );
     }
